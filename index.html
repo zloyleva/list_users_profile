@@ -11,11 +11,17 @@
         color: #fff;
       }
       span.green{
-        color: #688e2f;;
+        color: #688e2f;
       }
       span.orange{
-        color: #e48822;;;
+        color: #e48822;
       }
+      span.red{
+        color: #e0685c;
+      }
+      img.f_width{
+			     width: 100%;
+		  }
     </style>
   </head>
   <body>
@@ -27,7 +33,7 @@
           <h1>Как вывести таблицу профилей сотрудников</h1>
           <h2>Задание</h2>
           <p><b>Есть данные по персоналу фирмы. Создать массив для хранения данных в php и вывести эти данные на екран в виде таблицы:</b></p>
-          <img src="./images/table.png" alt="">
+          <img class="f_width" src="./images/table.png" alt="">
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -88,6 +94,90 @@
     [<span class="green">"сотрудник_№8"</span>],
   ]
             </code></pre>
+
+            <p>Используя эти знания определим переменную <kbd>$staff</kbd> и занесем в нее
+              массив с персоналом</p>
+              <pre><code>
+<span class="red">$staff</span> = [
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Иван"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Васильев"</span>,
+      <span class="green">"born"</span>=><span class="orange">1996</span>,
+      <span class="green">"hired"</span>=><span class="orange">2017</span>,
+      <span class="green">"job"</span>=><span class="green">"Программист"</span>,
+      <span class="green">"salary"</span>=><span class="orange">1500</span>,
+      <span class="green">"experience"</span>=><span class="orange">3,5</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Артем"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Васильев"</span>,
+      <span class="green">"born"</span>=><span class="orange">1990</span>,
+      <span class="green">"hired"</span>=><span class="orange">2015</span>,
+      <span class="green">"job"</span>=><span class="green">"Программист"</span>,
+      <span class="green">"salary"</span>=><span class="orange">2500</span>,
+      <span class="green">"experience"</span>=><span class="orange">6,5</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Иллья"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Моргунов"</span>,
+      <span class="green">"born"</span>=><span class="orange">1999</span>,
+      <span class="green">"hired"</span>=><span class="orange">2017</span>,
+      <span class="green">"job"</span>=><span class="green">"Стажер"</span>,
+      <span class="green">"salary"</span>=><span class="orange">200</span>,
+      <span class="green">"experience"</span>=><span class="orange">0,3</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Александр"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Мищенко"</span>,
+      <span class="green">"born"</span>=><span class="orange">1982</span>,
+      <span class="green">"hired"</span>=><span class="orange">2013</span>,
+      <span class="green">"job"</span>=><span class="green">"СТО"</span>,
+      <span class="green">"salary"</span>=><span class="orange">3500</span>,
+      <span class="green">"experience"</span>=><span class="orange">8</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Анна"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Герасимова"</span>,
+      <span class="green">"born"</span>=><span class="orange">1978</span>,
+      <span class="green">"hired"</span>=><span class="orange">2013</span>,
+      <span class="green">"job"</span>=><span class="green">"Бухгалтер"</span>,
+      <span class="green">"salary"</span>=><span class="orange">800</span>,
+      <span class="green">"experience"</span>=><span class="orange">12</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Ирина"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Фролова"</span>,
+      <span class="green">"born"</span>=><span class="orange">1998</span>,
+      <span class="green">"hired"</span>=><span class="orange">2016</span>,
+      <span class="green">"job"</span>=><span class="green">"Дизайнер"</span>,
+      <span class="green">"salary"</span>=><span class="orange">850</span>,
+      <span class="green">"experience"</span>=><span class="orange">2</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Евдокия"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Стоянова"</span>,
+      <span class="green">"born"</span>=><span class="orange">1965</span>,
+      <span class="green">"hired"</span>=><span class="orange">2014</span>,
+      <span class="green">"job"</span>=><span class="green">"Уборщица"</span>,
+      <span class="green">"salary"</span>=><span class="orange">250</span>,
+      <span class="green">"experience"</span>=><span class="orange">""</span>
+    ],
+    [
+      <span class="green">"first_name"</span>=><span class="green">"Игорь"</span>,
+      <span class="green">"last_name"</span>=><span class="green">"Артюхов"</span>,
+      <span class="green">"born"</span>=><span class="orange">1980</span>,
+      <span class="green">"hired"</span>=><span class="orange">2013</span>,
+      <span class="green">"job"</span>=><span class="green">"Директор"</span>,
+      <span class="green">"salary"</span>=><span class="orange">3250</span>,
+      <span class="green">"experience"</span>=><span class="orange">10</span>
+    ],
+  ];
+              </code></pre>
+              <p>Еще один бал в пользу такой структуры данных - именно так(или
+                ввиде объекта, но об этом немного позже) Вы их будете получать
+                из БД.<br>
+                Наш "персонал" готов к выводу на HTML страницу.
+              </p>
         </div>
 
       </div>
