@@ -4,18 +4,92 @@
     <meta charset="utf-8">
     <title>Вывод таблицы профилей сотрудников</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style type="text/css">
+      pre{
+        background-color: #282c34;;
+        padding: 5px;
+        color: #fff;
+      }
+      span.green{
+        color: #688e2f;;
+      }
+      span.orange{
+        color: #e48822;;;
+      }
+    </style>
   </head>
   <body>
 
     <div class="container">
     	<div class="row">
+
     		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h1>Как вывести таблицу профилей сотрудников</h1>
-
-          <p><b>Задание. Есть данные по персоналу фирмы. Создать массив для хранения данных в php и вывести эти данные на екран в виде таблицы:</b></p>
+          <h2>Задание</h2>
+          <p><b>Есть данные по персоналу фирмы. Создать массив для хранения данных в php и вывести эти данные на екран в виде таблицы:</b></p>
           <img src="./images/table.png" alt="">
-
         </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Шаг 1</h2>
+          <p>Сначала определим как должен виглядить конечный HTML документ. Для таблици структура будет такой:</p>
+          <img src="./images/table_html.png" alt="">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Шаг 2</h2>
+          <p>Теперь создадим структуру данных. Каждый сотрудник будет массивом
+            данных в котором ключем(<kbd>$key</kbd>) будет обозначение типа данных, заначением(<kbd>$value</kbd>) -
+            величина. Например вот так:</p>
+          <pre><code>
+[
+  <span class="green">"Имя"</span>=><span class="green">"Иван"</span>,
+  <span class="green">"Фамилия"</span>=><span class="green">"Васильев"</span>,
+  <span class="green">"Год_рождения"</span>=><span class="orange">1996</span>,
+  <span class="green">"Принят"</span>=><span class="orange">2017</span>,
+  <span class="green">"Должность"</span>=><span class="green">"Программист"</span>,
+  <span class="green">"Зарплата"</span>=><span class="orange">1500</span>,
+  <span class="green">"Опыт"</span>=><span class="orange">3,5</span>
+]
+          </code></pre>
+          <p>Почему так? У нас все сотрудники имеют одинаковый тип данных, плюс
+            так легче структурировать данные и делать выборки. Почему не
+            используется простой масив? Потому что в нем нет гарантии целосности
+            и порядка данных. Это означает что мы можем получать данные не в том
+            порядке каком запланировали</p>
+          <p>Важный момент - в качестве значений ключей не принято использовать
+            строки содержашие не латинские символы, по этому видоизменим наш
+            исходный массив</p>
+            <pre><code>
+  [
+    <span class="green">"first_name"</span>=><span class="green">"Иван"</span>,
+    <span class="green">"last_name"</span>=><span class="green">"Васильев"</span>,
+    <span class="green">"born"</span>=><span class="orange">1996</span>,
+    <span class="green">"hired"</span>=><span class="orange">2017</span>,
+    <span class="green">"job"</span>=><span class="green">"Программист"</span>,
+    <span class="green">"salary"</span>=><span class="orange">1500</span>,
+    <span class="green">"experience"</span>=><span class="orange">3,5</span>
+  ]
+            </code></pre>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Шаг 3</h2>
+          <p>Теперь построим итоговый массив данных, который будет содержать в
+            себе данные всех сотрудников. Т.е. в "глобальый" массив "ПЕРСОНАЛ"
+            вложим массивы с данными по каждому сотруднику. Схематическая
+            структура будет такая:</p>
+            <pre><code>
+  [
+    [<span class="green">"сотрудник_№1"</span>],
+    [<span class="green">"сотрудник_№2"</span>],
+    [<span class="green">"сотрудник_№3"</span>],
+    ...
+    [<span class="green">"сотрудник_№8"</span>],
+  ]
+            </code></pre>
+        </div>
+
       </div>
     </div>
 
