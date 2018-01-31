@@ -180,6 +180,51 @@
               </p>
         </div>
 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Шаг 4</h2>
+          <p>Перед выводом персонала давайте подготовим массив с данными для
+            вывода шапки таблицы. Это не обязательный шаг, но в больших проектах
+            это правильная практика. Особенно если что-то изменится в условии
+            задачи. Без этого нужно будет искать где внесить исправления в теле
+            кода</p>
+
+            <pre><code>
+  <span class="red">$header</span> = [
+    <span class="green">"first_name"</span>=><span class="green">"Имя"</span>,
+    <span class="green">"last_name"</span>=><span class="green">"Фамилия"</span>,
+    <span class="green">"born"</span>=><span class="green">"Год рождения"</span>,
+    <span class="green">"hired"</span>=><span class="green">"Принят в штат"</span>,
+    <span class="green">"job"</span>=><span class="green">"Должность"</span>,
+    <span class="green">"salary"</span>=><span class="green">"Зарплата"</span>,
+    <span class="green">"experience"</span>=><span class="green">"Опыт"</span>
+  ];
+            </code></pre>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Шаг 5</h2>
+          <p>Вывод шапки:</p>
+
+            <pre><code>
+
+<span class="red">$html</span> = <span class="green">&lt;&lt;&lt;</span>HTML
+  &lt;<span class="red">table</span> class=<span class="green">"table table-striped"</span>&gt;
+    &lt;<span class="red">thead</span>&gt;
+      &lt;<span class="red">tr</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['first_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['last_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['born']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['hired']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['job']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['salary']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['experience']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+      &lt;/<span class="red">tr</span>&gt;
+    &lt;/<span class="red">thead</span>&gt;
+HTML;
+
+            </code></pre>
+        </div>
+
       </div>
     </div>
 
