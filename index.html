@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Вывод таблицы профилей сотрудников</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style type="text/css">
-      pre{
-        background-color: #282c34;;
-        padding: 5px;
-        color: #fff;
-      }
-      span.green{
-        color: #688e2f;
-      }
-      span.orange{
-        color: #e48822;
-      }
-      span.red{
-        color: #e0685c;
-      }
-      img.f_width{
-			     width: 100%;
-		  }
+        pre {
+            background-color: #282c34;;
+            padding: 5px;
+            color: #fff;
+        }
+
+        span.green {
+            color: #688e2f;
+        }
+
+        span.orange {
+            color: #e48822;
+        }
+
+        span.red {
+            color: #e0685c;
+        }
+
+        img.f_width {
+            width: 100%;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="container">
-    	<div class="row">
+<div class="container">
+    <div class="row">
 
-    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h1>Как вывести таблицу профилей сотрудников</h1>
-          <h2>Задание</h2>
-          <p><b>Есть данные по персоналу фирмы. Создать массив для хранения данных в php и вывести эти данные на екран в виде таблицы:</b></p>
-          <img class="f_width" src="./images/table.png" alt="">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1>Как вывести таблицу профилей сотрудников</h1>
+            <h2>Задание</h2>
+            <p><b>Есть данные по персоналу фирмы. Создать массив для хранения данных в php и вывести эти данные на екран
+                в виде таблицы:</b></p>
+            <img class="f_width" src="./images/table.png" alt="">
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h2>Шаг 1</h2>
-          <p>Сначала определим как должен виглядить конечный HTML документ. Для таблици структура будет такой:</p>
-          <img src="./images/table_html.png" alt="">
+            <h2>Шаг 1</h2>
+            <p>Сначала определим как должен виглядить конечный HTML документ. Для таблици структура будет такой:</p>
+            <img src="./images/table_html.png" alt="">
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h2>Шаг 2</h2>
-          <p>Теперь создадим структуру данных. Каждый сотрудник будет массивом
-            данных в котором ключем(<kbd>$key</kbd>) будет обозначение типа данных, заначением(<kbd>$value</kbd>) -
-            величина. Например вот так:</p>
-          <pre><code>
+            <h2>Шаг 2</h2>
+            <p>Теперь создадим структуру данных. Каждый сотрудник будет массивом
+                данных в котором ключем(<kbd>$key</kbd>) будет обозначение типа данных, заначением(<kbd>$value</kbd>) -
+                величина. Например вот так:</p>
+            <pre><code>
 [
   <span class="green">"Имя"</span>=><span class="green">"Иван"</span>,
   <span class="green">"Фамилия"</span>=><span class="green">"Васильев"</span>,
@@ -58,14 +63,14 @@
   <span class="green">"Опыт"</span>=><span class="orange">3,5</span>
 ]
           </code></pre>
-          <p>Почему так? У нас все сотрудники имеют одинаковый тип данных, плюс
-            так легче структурировать данные и делать выборки. Почему не
-            используется простой масив? Потому что в нем нет гарантии целосности
-            и порядка данных. Это означает что мы можем получать данные не в том
-            порядке каком запланировали</p>
-          <p>Важный момент - в качестве значений ключей не принято использовать
-            строки содержашие не латинские символы, по этому видоизменим наш
-            исходный массив</p>
+            <p>Почему так? У нас все сотрудники имеют одинаковый тип данных, плюс
+                так легче структурировать данные и делать выборки. Почему не
+                используется простой масив? Потому что в нем нет гарантии целосности
+                и порядка данных. Это означает что мы можем получать данные не в том
+                порядке каком запланировали</p>
+            <p>Важный момент - в качестве значений ключей не принято использовать
+                строки содержашие не латинские символы, по этому видоизменим наш
+                исходный массив</p>
             <pre><code>
   [
     <span class="green">"first_name"</span>=><span class="green">"Иван"</span>,
@@ -80,11 +85,11 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h2>Шаг 3</h2>
-          <p>Теперь построим итоговый массив данных, который будет содержать в
-            себе данные всех сотрудников. Т.е. в "глобальый" массив "ПЕРСОНАЛ"
-            вложим массивы с данными по каждому сотруднику. Схематическая
-            структура будет такая:</p>
+            <h2>Шаг 3</h2>
+            <p>Теперь построим итоговый массив данных, который будет содержать в
+                себе данные всех сотрудников. Т.е. в "глобальый" массив "ПЕРСОНАЛ"
+                вложим массивы с данными по каждому сотруднику. Схематическая
+                структура будет такая:</p>
             <pre><code>
   [
     [<span class="green">"сотрудник_№1"</span>],
@@ -96,8 +101,8 @@
             </code></pre>
 
             <p>Используя эти знания определим переменную <kbd>$staff</kbd> и занесем в нее
-              массив с персоналом</p>
-              <pre><code>
+                массив с персоналом</p>
+            <pre><code>
 <span class="red">$staff</span> = [
     [
       <span class="green">"first_name"</span>=><span class="green">"Иван"</span>,
@@ -173,20 +178,20 @@
     ],
   ];
               </code></pre>
-              <p>Еще один бал в пользу такой структуры данных - именно так(или
+            <p>Еще один бал в пользу такой структуры данных - именно так(или
                 ввиде объекта, но об этом немного позже) Вы их будете получать
                 из БД.<br>
                 Наш "персонал" готов к выводу на HTML страницу.
-              </p>
+            </p>
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h2>Шаг 4</h2>
-          <p>Перед выводом персонала давайте подготовим массив с данными для
-            вывода шапки таблицы. Это не обязательный шаг, но в больших проектах
-            это правильная практика. Особенно если что-то изменится в условии
-            задачи. Без этого нужно будет искать где внесить исправления в теле
-            кода</p>
+            <h2>Шаг 4</h2>
+            <p>Перед выводом персонала давайте подготовим массив с данными для
+                вывода шапки таблицы. Это не обязательный шаг, но в больших проектах
+                это правильная практика. Особенно если что-то изменится в условии
+                задачи. Без этого нужно будет искать где внесить исправления в теле
+                кода</p>
 
             <pre><code>
   <span class="red">$header</span> = [
@@ -202,8 +207,8 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h2>Шаг 5</h2>
-          <p>Вывод шапки:</p>
+            <h2>Шаг 5</h2>
+            <p>Вывод шапки:</p>
 
             <pre><code>
 
@@ -211,22 +216,38 @@
   &lt;<span class="red">table</span> class=<span class="green">"table table-striped"</span>&gt;
     &lt;<span class="red">thead</span>&gt;
       &lt;<span class="red">tr</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['first_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['last_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['born']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['hired']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['job']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['salary']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
-        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['experience']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span
+                    class="green">['first_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span
+                    class="green">['last_name']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['born']</span><span
+                    class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['hired']</span><span
+                    class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['job']</span><span
+                    class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span class="green">['salary']</span><span
+                    class="red">}</span>&lt;/<span class="red">th</span>&gt;
+        &lt;<span class="red">th</span>&gt;<span class="red">{$header</span><span
+                    class="green">['experience']</span><span class="red">}</span>&lt;/<span class="red">th</span>&gt;
       &lt;/<span class="red">tr</span>&gt;
     &lt;/<span class="red">thead</span>&gt;
 HTML;
 
             </code></pre>
+
+            <p>Сейчас код в index.php выглядит примерно так:</p>
+            <img src="./images/header_code.png" alt="">
         </div>
 
-      </div>
-    </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2>Шаг 6</h2>
+            <p>Осталось вывести данные с сотрудниками. делаем по аналогии с шапкой</p>
+            <img src="./images/echo_html.png" alt="">
+        </div>
 
-  </body>
+    </div>
+</div>
+
+</body>
 </html>
